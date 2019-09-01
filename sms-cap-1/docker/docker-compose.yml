@@ -1,0 +1,6 @@
+version: '3.7'
+services:
+  demo_service:
+      image: jcabelloc/demo-fintech:0.0.1-SNAPSHOT
+      ports:
+        - "8080:8080"

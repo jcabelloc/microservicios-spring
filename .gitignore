@@ -1,0 +1,9 @@
+.mvn
+**/.mvn
+**/.metadata
+
+
+
+/sms-cap-2/**
+/sms-cap-3/**
+/sms-config-repo/**
