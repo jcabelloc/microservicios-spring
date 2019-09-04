@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import pe.fintech.prestamos.model.Prestamo;
 
 @RestController
-@RequestMapping(path="/v1/clientes/{codCliente}/prestamos")
+@RequestMapping(path="v1/clientes/{codCliente}/prestamos")
 public class PrestamoController {
 	
 	@GetMapping("/{codPrestamo}")
