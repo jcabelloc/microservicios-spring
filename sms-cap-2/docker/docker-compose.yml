@@ -1,0 +1,6 @@
+version: '3.7'
+services:
+  fintech-servicio-prestamo:
+      image: jcabelloc/fintech-servicio-prestamo:0.0.1-SNAPSHOT
+      ports:
+        - "8080:8080"
