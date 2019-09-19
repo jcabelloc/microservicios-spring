@@ -26,9 +26,11 @@ spring:
     stream:
       bindings:
         output:
-            destination:  orgChangeTopic
+            destination:  clienteChangeTopic
             content-type: application/json
       kafka:
         binder:
           zkNodes: localhost
           brokers: localhost
+
+          

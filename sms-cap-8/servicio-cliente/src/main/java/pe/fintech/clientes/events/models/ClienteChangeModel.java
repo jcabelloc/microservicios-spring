@@ -7,11 +7,11 @@ public class ClienteChangeModel{
     private String correlationId;
 
 
-    public ClienteChangeModel(String type, String action, Integer organizationId, String correlationId) {
+    public ClienteChangeModel(String type, String action, Integer codCliente, String correlationId) {
         super();
         this.type   = type;
         this.action = action;
-        this.codCliente = organizationId;
+        this.codCliente = codCliente;
         this.correlationId = correlationId;
     }
 

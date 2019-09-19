@@ -1,7 +1,11 @@
 package pe.fintech.prestamos.model;
 
-public class Cliente {
+import java.io.Serializable;
+
+public class Cliente implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
+
 	private Integer codCliente;
 	
 	private String nombre;
@@ -45,7 +49,13 @@ public class Cliente {
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
-	
 
+	@Override
+	public String toString() {
+		return "Cliente [codCliente=" + codCliente + ", nombre=" + nombre + ", email=" + email + ", telefono="
+				+ telefono + "]";
+	}
+	
+	
 
 }

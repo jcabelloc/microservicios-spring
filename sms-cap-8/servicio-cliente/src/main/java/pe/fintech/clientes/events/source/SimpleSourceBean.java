@@ -21,7 +21,7 @@ public class SimpleSourceBean {
         this.source = source;
     }
 
-    public void publishOrgChange(String action,Integer codCliente){
+    public void publishClienteChange(String action,Integer codCliente){
        logger.debug("Sending Kafka message {} for codCliente: {}", action, codCliente);
        ClienteChangeModel change =  new ClienteChangeModel(
     		   ClienteChangeModel.class.getTypeName(),

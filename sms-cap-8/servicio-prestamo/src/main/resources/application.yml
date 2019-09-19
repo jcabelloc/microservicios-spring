@@ -15,12 +15,16 @@ spring:
   cloud:
     stream:
       bindings:
-        input:
-          destination: orgChangeTopic
+        inboundClienteChanges:
+          destination: clienteChangeTopic
           content-type: application/json
-          group: licensingGroup
+          group: prestamoGroup      
       kafka:
         binder:
           zkNodes: localhost
           brokers: localhost
 
+#        input:
+#          destination: clienteChangeTopic
+#          content-type: application/json
+#          group: prestamoGroup

@@ -36,7 +36,7 @@ public class ClienteServiceImpl implements ClienteService {
 	@Transactional
 	public Cliente create(Cliente cliente) {
 		cliente = clienteRepository.save(cliente);
-        simpleSourceBean.publishOrgChange("CREATE", cliente.getCodCliente());
+        simpleSourceBean.publishClienteChange("CREATE", cliente.getCodCliente());
 		return cliente; 
 		
 	}
@@ -45,7 +45,7 @@ public class ClienteServiceImpl implements ClienteService {
 	@Transactional
 	public void update(Cliente cliente) {
 		clienteRepository.save(cliente);
-        simpleSourceBean.publishOrgChange("UPDATE", cliente.getCodCliente());
+        simpleSourceBean.publishClienteChange("UPDATE", cliente.getCodCliente());
 	}
 
 }

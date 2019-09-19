@@ -76,7 +76,16 @@
 	       <groupId>org.springframework.cloud</groupId>
 	       <artifactId>spring-cloud-starter-stream-kafka</artifactId>
 	    </dependency>
-		
+		<!--Spring Data Redis dependencies-->
+	    <dependency>
+	    	<groupId>org.springframework.data</groupId>
+	    	<artifactId>spring-data-redis</artifactId>
+	   	</dependency>
+	   	<dependency>
+	    	<groupId>redis.clients</groupId>
+	    	<artifactId>jedis</artifactId>
+	   	</dependency>
+
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
