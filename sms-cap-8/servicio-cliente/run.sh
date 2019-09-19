@@ -20,11 +20,18 @@ while ! nc -z database $DATABASESERVER_PORT; do sleep 3; done
 echo ">>>>>>>>>>>> Database Server has started"
 
 echo "********************************************************"
+echo "Waiting for the kafka server to start on port $KAFKASERVER_PORT"
+echo "********************************************************"
+while ! nc -z kafkaserver $KAFKASERVER_PORT; do sleep 3; done
+echo ">>>>>>>>>>>> Kafka Server has started"
+
+echo "********************************************************"
 echo "Starting Service with Configuration Service :  $CONFIGSERVER_URI";
 echo "********************************************************"
 java -Dserver.port=$SERVER_PORT 										\
 	-Deureka.client.serviceUrl.defaultZone=$EUREKASERVER_URI            \
 	-Dspring.cloud.config.uri=$CONFIGSERVER_URI 						\
+    -Dspring.cloud.stream.kafka.binder.zkNodes=$ZKSERVER_URI   		    \
+    -Dspring.cloud.stream.kafka.binder.brokers=$KAFKASERVER_URI         \
 	-Dspring.profiles.active=$PROFILE 									\
-    -Dsecurity.oauth2.resource.userInfoUri=$AUTHSERVER_URI              \
 	-jar /usr/share/servicios/$jar

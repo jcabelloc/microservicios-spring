@@ -43,11 +43,13 @@ services:
         SERVER_PORT: "8080"
         CONFIGSERVER_URI: "http://fintech-configurationserver:8888"
         EUREKASERVER_URI: "http://fintech-eurekaserver:8761/eureka/"
-        AUTHSERVER_URI:   "http://fintech-servicio-autenticacion:8901/auth/user"        
+        KAFKASERVER_URI: "kafkaserver"
+        ZKSERVER_URI: "kafkaserver"
         EUREKASERVER_PORT:   "8761"
         CONFIGSERVER_PORT:   "8888"
         DATABASESERVER_PORT: "5432"
-        AUTHSERVER_PORT:   "8091"
+        KAFKASERVER_PORT:    "2181"
+        REDIS_PORT:          "6379"
         
   fintech-servicio-cliente:
       image: jcabelloc/fintech-servicio-cliente:0.0.1-SNAPSHOT
@@ -58,20 +60,22 @@ services:
         SERVER_PORT: "8085"
         CONFIGSERVER_URI: "http://fintech-configurationserver:8888"
         EUREKASERVER_URI: "http://fintech-eurekaserver:8761/eureka/"
-        AUTHSERVER_URI:   "http://fintech-servicio-autenticacion:8901/auth/user"            
+        KAFKASERVER_URI: "kafkaserver"
+        ZKSERVER_URI: "kafkaserver"        
         EUREKASERVER_PORT:   "8761"
         CONFIGSERVER_PORT:   "8888"
         DATABASESERVER_PORT: "5432"
-        AUTHSERVER_PORT:   "8091"
-  fintech-servicio-autenticacion:
-      image: jcabelloc/fintech-servicio-autenticacion:0.0.1-SNAPSHOT
-      ports:
-        - "8901:8901"
-      environment:
-        PROFILE: "default"
-        SERVER_PORT: "8901"
-        CONFIGSERVER_URI: "http://fintech-configurationserver:8888"
-        EUREKASERVER_URI: "http://fintech-eurekaserver:8761/eureka/"
-        EUREKASERVER_PORT:   "8761"
-        CONFIGSERVER_PORT:   "8888"
-        DATABASESERVER_PORT: "5432"  
+        KAFKASERVER_PORT:    "2181"
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+  kafkaserver:
+    image: johnnypark/kafka-zookeeper
+    ports:
+      - "2181:2181"
+      - "9092:9092"
+    environment:
+        ADVERTISED_HOST: kafkaserver
+        NUM_PARTITIONS: "10"
+        
