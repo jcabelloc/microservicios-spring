@@ -22,19 +22,19 @@ echo ">>>>>>>>>>>> Database Server has started"
 echo "********************************************************"
 echo "Waiting for the kafka server to start on port $KAFKASERVER_PORT"
 echo "********************************************************"
-while ! nc -z kafkaserver $KAFKASERVER_PORT; do sleep 3; done
+while ! nc -z kafkaserver $KAFKASERVER_PORT; do sleep 10; done
 echo ">>>>>>>>>>>> Kafka Server has started"
 
 echo "********************************************************"
 echo "Waiting for the REDIS server to start on port $REDIS_PORT"
 echo "********************************************************"
-while ! nc -z redis $REDIS_PORT; do sleep 3; done
+while ! nc -z redis $REDIS_PORT; do sleep 10; done
 echo ">>>>>>>>>>>> REDIS Server has started"
 
 echo "********************************************************"
 echo "Waiting for the ZIPKIN server to start on port $ZIPKIN_PORT"
 echo "********************************************************"
-while ! nc -z zipkin $ZIPKIN_PORT; do sleep 3; done
+while ! nc -z zipkin $ZIPKIN_PORT; do sleep 10; done
 echo ">>>>>>>>>>>> ZIPKIN Server has started"
 
 echo "********************************************************"
